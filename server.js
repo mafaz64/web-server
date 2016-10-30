@@ -1,4 +1,6 @@
 var express = require('express');
+//Including another file in my file. Since midddleware.js is in the same directory I used ./ in from of the file name.
+
 
 var app = express();
 var path = __dirname + '\\' + 'public';
@@ -6,16 +8,7 @@ var path = __dirname + '\\' + 'public';
 // path = encodeURIComponent(path);
 var PORT = 3000;
 
-var middleware = {
-	requireAuthentication: function (req, res, next) {
-		console.log('private route hit!');
-		next();
-	},
-	logger: function (req, res, next) {
-		console.log('Request: ' + new Date().toString() + ' ' + req.method + ' ' + req.originalUrl);
-		next();
-	}
-};
+var middleware = require('./middleware.js');
 
 //Adding app level authentication. The following adds the app level authentication
 //app.use(middleware.requireAuthentication);
