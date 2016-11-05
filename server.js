@@ -6,7 +6,9 @@ var app = express();
 var path = __dirname + '\\' + 'public';
 // console.log(path);
 // path = encodeURIComponent(path);
-var PORT = 3000;
+//Note: Added the process.env.PORT for Heroku. 
+//If PORT is not found as will be the case for local server 300 will be used.
+var PORT = process.env.PORT || 3000;
 
 var middleware = require('./middleware.js');
 
